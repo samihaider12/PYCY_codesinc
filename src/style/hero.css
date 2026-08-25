@@ -1,0 +1,186 @@
+/* Hero Main Section Container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  /* Fix 1: Min-height 100vh rakhi hai taake full screen view mile */
+  min-height: calc(100vh - 80px); 
+  /* Fix 2: background-size: 100% 100% ya contain/cover adjustment */
+  background-size: 100% 100%; /* Image bilkul stretch/fit ho kar poori dikhegi */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Inner Alignment Container */
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  /* Bottom padding kam ki hai taake bottom design white brush bar cut na ho */
+  padding: 40px 24px 100px 24px; 
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+/* Content Box Width */
+.hero-content {
+  max-width: 580px;
+  color: #ffffff;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.hero-subtitle::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #cbd5e1;
+  margin-top: 6px;
+}
+
+/* Main Heading */
+.hero-title {
+  font-size: 46px;
+  line-height: 1.15;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+}
+
+/* Highlight Text */
+.highlight-text {
+  color: #f1a829;
+}
+
+/* Paragraph */
+.hero-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin-bottom: 32px;
+}
+
+/* Buttons Container */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Buttons Base Styling */
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  font-size: 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Explore Our Programs Button */
+.btn-primary {
+  background-color: #f1a829;
+  color: #112646;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: 2px solid #f1a829;
+  box-shadow: 0 4px 15px rgba(241, 168, 41, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #112646;
+  color: #f1a829;
+  border-color: #f1a829;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(241, 168, 41, 0.45);
+}
+
+/* Watch Our Story Button */
+.btn-secondary {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.play-icon {
+  font-size: 10px;
+  background-color: #ffffff;
+  color: #112646;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+  transition: all 0.35s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #f1a829;
+  color: #f1a829;
+  background-color: rgba(241, 168, 41, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(241, 168, 41, 0.25);
+}
+
+.btn-secondary:hover .play-icon {
+  background-color: #f1a829;
+  color: #112646;
+  transform: scale(1.15) rotate(360deg);
+  box-shadow: 0 0 10px rgba(241, 168, 41, 0.6);
+}
+
+/* Screen Size Aspect-Ratio Adjustments */
+@media (max-width: 1200px) {
+  .hero-section {
+    background-size: cover; /* Responsive screens par cover rakhein */
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary, 
+  .btn-secondary {
+    text-align: center;
+    justify-content: center;
+  }
+}

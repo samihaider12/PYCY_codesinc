@@ -1,0 +1,34 @@
+/* Full Section Background Animated Light Dots */
+.full-bg-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  /* Light small dots spread across full background */
+  background-image: radial-gradient(rgba(241, 168, 41, 0.4) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  animation: smoothLightDots 8s infinite ease-in-out;
+}
+
+/* Light & Subtle Show/Hide + Color Change Animation */
+@keyframes smoothLightDots {
+  0% {
+    opacity: 0.15;
+    background-image: radial-gradient(rgba(241, 168, 41, 0.3) 1.5px, transparent 1.5px); /* Very Light Yellow */
+  }
+  50% {
+    opacity: 0.45; /* Softly visible */
+    background-image: radial-gradient(rgba(96, 165, 250, 0.4) 1.5px, transparent 1.5px); /* Soft Light Blue */
+  }
+  75% {
+    opacity: 0.3;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.5px, transparent 1.5px); /* Soft White */
+  }
+  100% {
+    opacity: 0.15;
+    background-image: radial-gradient(rgba(241, 168, 41, 0.3) 1.5px, transparent 1.5px); /* Back to Soft Yellow */
+  }
+}   

@@ -1,0 +1,469 @@
+/* Section Container */
+.mission-section {
+  width: 100%;
+  padding: 100px 24px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.mission-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* --------------------------------------------------
+   LEFT GRAPHICS (OVERLAPPING IMAGES & BADGE)
+-------------------------------------------------- */
+.mission-graphics {
+  position: relative;
+  height: 520px;
+  width: 100%;
+}
+
+.img-box {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* Smooth Transition for Hover & Motion */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Image Zoom Effect */
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Top Large Horizontal Image (Park) */
+.top-img-box {
+  top: 0;
+  right: 0;
+  width: 78%;
+  height: 280px;
+  z-index: 1;
+  /* Continuous Floating Animation */
+  animation: floatTopImg 6s ease-in-out infinite;
+}
+
+/* Bottom Left Vertical Image (Classroom) */
+.bottom-left-img-box {
+  bottom: 0;
+  left: 0;
+  width: 52%;
+  height: 310px;
+  z-index: 2;
+  /* Opposite Floating Animation */
+  animation: floatBottomImg 7s ease-in-out infinite;
+}
+
+/* Hover Effects on Images */
+.top-img-box:hover,
+.bottom-left-img-box:hover {
+  z-index: 4;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.img-box:hover img {
+  transform: scale(1.08);
+}
+
+/* Yellow Accent Badge */
+.yellow-badge-card {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  width: 200px;
+  height: 140px;
+  background-color: #f1a829;
+  border-radius: 20px;
+  padding: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+  box-shadow: 0 12px 25px rgba(241, 168, 41, 0.3);
+  /* Subtle Bounce Animation */
+  animation: floatBadge 5s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.yellow-badge-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(241, 168, 41, 0.45);
+}
+
+.handshake-icon {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.badge-sub {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.badge-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------
+   ANIMATIONS (KEYFRAMES)
+-------------------------------------------------- */
+
+/* Top Image Smooth Floating */
+@keyframes floatTopImg {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+/* Bottom Image Smooth Floating */
+@keyframes floatBottomImg {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-0.5deg);
+  }
+}
+
+/* Yellow Badge Floating */
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* --------------------------------------------------
+   RIGHT CONTENT AREA
+-------------------------------------------------- */
+.mission-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label */
+.mission-label {
+  color: #f1a829;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Title */
+.mission-title {
+  font-size: 44px;
+  line-height: 1.15;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.script-text {
+  font-family: 'Brush Script MT', cursive, Georgia, serif;
+  color: #f1a829;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+/* Description */
+.mission-description {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #64748b;
+  margin-bottom: 36px;
+}
+
+/* Features & Stats Grid */
+.mission-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 36px;
+}
+
+/* Left Feature Item */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-icon-box {
+  width: 44px;
+  height: 44px;
+  background-color: #f1a829;
+  color: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.feature-text p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* Right Impact Card */
+.impact-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.impact-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.impact-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.impact-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.impact-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.impact-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: #f1a829;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.impact-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.impact-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* Yellow Action Button */
+.btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f1a829;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(241, 168, 41, 0.3);
+}
+
+.btn-learn-more:hover {
+  background-color: #d9911e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(241, 168, 41, 0.4);
+}
+
+
+/* Right Impact Card */
+.impact-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  position: relative;
+  /* Smooth Motion Transition */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Continuous Smooth Floating Animation */
+  animation: floatImpactCard 5.5s ease-in-out infinite;
+}
+
+/* Impact Card Hover Animation */
+.impact-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background-color: #ffffff;
+  border-color: #f1a829;
+  box-shadow: 0 15px 30px rgba(241, 168, 41, 0.15);
+}
+
+.impact-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.impact-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.impact-card:hover .impact-avatar {
+  transform: scale(1.1);
+}
+
+.impact-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.impact-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* 10K+ Number Animation & Styling */
+.impact-number {
+  font-size: 28px;
+  font-weight: 800;
+  color: #f1a829;
+  line-height: 1;
+  margin-bottom: 4px;
+  display: inline-block;
+  /* Soft Glowing Pulse Effect on Text */
+  animation: pulseNumber 3s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.impact-card:hover .impact-number {
+  transform: scale(1.08);
+}
+
+.impact-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.impact-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* --------------------------------------------------
+   KEYFRAME ANIMATIONS FOR IMPACT CARD
+-------------------------------------------------- */
+@keyframes floatImpactCard {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Number Soft Glow Pulse */
+@keyframes pulseNumber {
+  0%, 100% {
+    opacity: 0.9;
+    text-shadow: 0 0 0px rgba(241, 168, 41, 0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(241, 168, 41, 0.4);
+  }
+}
+/* --------------------------------------------------
+   RESPONSIVE LAYOUT
+-------------------------------------------------- */
+@media (max-width: 992px) {
+  .mission-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mission-graphics {
+    height: 440px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mission-title {
+    font-size: 32px;
+  }
+
+  .script-text {
+    font-size: 36px;
+  }
+
+  .mission-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .yellow-badge-card {
+    right: 10px;
+    width: 160px;
+    height: 120px;
+  }
+}

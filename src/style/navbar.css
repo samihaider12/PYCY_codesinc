@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header Outer Container */
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: #112646;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Inner Layout Wrapper */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 80px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* White Container Wrapper for Logo Image */
+.brand-logo {
+  background-color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo Image Styling */
+.logo-image {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Desktop Links */
+.desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Desktop Link Hover Underline Animation (::after) */
+.nav-item-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative; /* Before/After line alignment ke liye */
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-item-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%; /* Initial state: zero width */
+  height: 2px;
+  background-color: #f1a829; /* Yellow Color */
+  transition: width 0.3s ease-in-out; /* Smooth Left-to-Right Animation */
+}
+
+.nav-item-link:hover {
+  color: #f1a829;
+}
+
+.nav-item-link:hover::after {
+  width: 100%; /* Hover state: full width */
+}
+
+/* Yellow Donate Button */
+.pcyc-donate-btn {
+  background-color: #f1a829;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.pcyc-donate-btn:hover {
+  background-color: #d9911e;
+  transform: translateY(-1px);
+}
+
+/* Hamburger Toggle Button */
+.mobile-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .desktop-links,
+  .desktop-cta {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
+    display: block;
+  }
+
+  .mobile-drawer {
+    background-color: #0b1a30;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-top: 1px solid #1e3a5f;
+  }
+
+  .mobile-item-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1e3a5f;
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Mobile Links Hover Animation */
+  .mobile-item-link::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f1a829;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .mobile-item-link:hover::after {
+    width: 100%;
+  }
+
+  .mobile-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+}
