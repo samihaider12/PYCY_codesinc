@@ -4,7 +4,7 @@ import { useImages } from '../data/images';
 
 const Testimonials = () => {
   const { data: images = {} } = useImages();
-  // Top Cards Circular Array Order: Default = [0, 1, 2]
+  // Top Cards Circular Array Order
   const [cardOrder, setCardOrder] = useState([0, 1, 2]);
   const [isTopHovered, setIsTopHovered] = useState(false);
 
@@ -47,8 +47,6 @@ useEffect(() => {
   const interval = setInterval(() => {
     setCardOrder((prevOrder) => {
       const newOrder = [...prevOrder];
-
-      // 1 2 3 → 2 3 1
       const firstItem = newOrder.shift();
 
       newOrder.push(firstItem);
