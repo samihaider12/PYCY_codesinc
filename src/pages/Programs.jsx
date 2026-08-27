@@ -1,5 +1,5 @@
 import '../style/programs.css';
-import Impact from '../pages/Impect';
+ import Impact from '../pages/Impect';
 import { useImages } from '../data/images';
 
 const programsData = [
@@ -42,37 +42,47 @@ const Programs = () => {
   const { data: images = {} } = useImages();
 
   return (
-    <div className="programs-page-wrapper">
+    <div className="w-full">
       {/* 1. Programs Section */}
-      <section className="programs-section" id="program">
-        <div className="programs-container">
-          
+      <section className="w-full pt-[90px] pb-[70px] px-6 bg-[#faf5ee] flex justify-center" id="program">
+        <div className="max-w-[1200px] w-full flex flex-col items-center">
+
           {/* Top Tag & Title */}
-          <div className="programs-header">
-            <span className="program-tag">
-              <span className="dot">•</span> OUR PROGRAM
+          <div className="text-center mb-[50px]">
+            <span className="inline-flex items-center gap-1.5 bg-[#fcecd7] text-[#212529] text-[11px] font-extrabold tracking-[1.5px] px-4 py-1.5 rounded-full uppercase mb-4">
+              <span className="text-[#f1a829] text-base leading-none">•</span> OUR PROGRAM
             </span>
-            <h2 className="programs-title">
-              Programs That Open <span className="script-text">Doors</span>
+            <h2 className="text-[32px] sm:text-[42px] font-extrabold text-[#0f172a]">
+              Programs That Open{' '}
+              <span className="[font-family:'Dancing_Script'] text-[#f1a829] font-normal text-[36px] sm:text-[48px] ml-1">
+                Doors
+              </span>
             </h2>
           </div>
 
           {/* Cards Grid */}
-          <div className="programs-grid">
+          <div className="programs-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] w-full mb-9">
             {programsData.map((item) => (
-              <div key={item.id} className="program-card">
-                <div className="card-image-wrapper">
-                  <img src={images[item.imageKey]} alt={item.title} className="card-image" />
+              <div
+                key={item.id}
+                className="program-card relative h-[380px] rounded-[28px] overflow-hidden shadow-[0_10px_25px_rgba(0,0,0,0.06)] cursor-pointer p-[3px] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[10px] hover:shadow-[0_18px_35px_rgba(241,168,41,0.25)] group"
+              >
+                <div className="w-full h-full rounded-[25px] overflow-hidden relative bg-white">
+                  <img
+                    src={images[item.imageKey]}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
+                  />
                 </div>
-                
+
                 {/* Overlay White Badge Card */}
-                <div className="card-overlay-badge">
-                  <div className="badge-icon-box">
+                <div className="card-overlay-badge absolute bottom-4 left-4 right-4 bg-white rounded-[20px] p-4 flex items-start gap-3.5 shadow-[0_6px_20px_rgba(0,0,0,0.08)] overflow-hidden z-10 transition-[transform,box-shadow] duration-[400ms] ease-in-out group-hover:-translate-y-[3px] group-hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)]">
+                  <div className="relative z-[2] w-10 h-10 min-w-[40px] bg-[#f1a829] text-white rounded-full flex items-center justify-center">
                     {item.icon}
                   </div>
-                  <div className="badge-content">
-                    <h3 className="badge-title">{item.title}</h3>
-                    <p className="badge-desc">{item.description}</p>
+                  <div className="relative z-[2]">
+                    <h3 className="text-[15px] font-bold text-[#0f172a] mb-1 leading-[1.25]">{item.title}</h3>
+                    <p className="text-xs text-slate-500 leading-[1.4]">{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -80,24 +90,24 @@ const Programs = () => {
           </div>
 
           {/* Pagination Dots */}
-          <div className="pagination-dots">
-            <span className="dot active"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
-            <span className="dot"></span>
+          <div className="flex items-center gap-2 mb-10">
+            <span className="w-6 h-2 rounded-xl bg-[#f1a829] transition-all duration-300 cursor-pointer"></span>
+            <span className="w-2 h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer"></span>
+            <span className="w-2 h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer"></span>
+            <span className="w-2 h-2 rounded-full bg-slate-300 transition-all duration-300 cursor-pointer"></span>
           </div>
 
           {/* Bottom Review & Rating Section */}
-          <div className="programs-footer">
-            <p className="footer-subtext">
+          <div className="text-center flex flex-col items-center gap-3">
+            <p className="text-sm text-slate-700 font-medium">
               Join our team and help weave innovation, quality, and success together worldwide.
             </p>
-            <div className="rating-box">
-              <span className="rating-score">4.9/5</span>
-              <div className="stars">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="font-extrabold text-[#0f172a]">4.9/5</span>
+              <div className="text-[#f1a829] tracking-[2px] text-base">
                 ★★★★★
               </div>
-              <span className="review-count">Our 4200 Review</span>
+              <span className="font-bold text-[#0f172a]">Our 4200 Review</span>
             </div>
           </div>
 

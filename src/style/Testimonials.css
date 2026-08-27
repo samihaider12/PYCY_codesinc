@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital@1&display=swap');
-
-/* Base Container */
-.place-heading {
-  margin: 0 auto 32px;
-  text-align: center;
-}
+/* Only the JS-state-driven carousel/swap positioning lives here — everything else is Tailwind in the JSX */
 
 .place-cards-container {
   position: relative;
@@ -17,23 +11,13 @@
   box-sizing: border-box;
 }
 
-/* ==================================================
-   TOP CARDS - CAROUSEL (DESKTOP DEFAULT)
-================================================== */
+/* TOP CARDS - CAROUSEL (DESKTOP DEFAULT) */
 .place-card {
   position: absolute;
   top: 20px;
   width: calc((100% - 80px) / 3);
   min-height: 280px;
   box-sizing: border-box;
-  background: linear-gradient(180deg, #ffffff 60%, #fff7ea 100%);
-  border: 1px solid #f3f4f6;
-  border-radius: 24px;
-  padding: 32px 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   transition:
     left 0.8s cubic-bezier(0.65, 0, 0.35, 1),
     transform 0.8s cubic-bezier(0.65, 0, 0.35, 1),
@@ -43,7 +27,6 @@
   will-change: left, transform, opacity;
 }
 
-/* CAROUSEL POSITIONS */
 .position-0 {
   left: 16px;
   transform: scale(0.95);
@@ -67,51 +50,7 @@
   z-index: 1;
 }
 
-/* ICON - STATIC */
-.place-section .icon-circle {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background-color: #fef3e2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-}
-
-.place-section .icon-circle svg {
-  transform: none !important;
-  animation: none !important;
-  transition: none !important;
-}
-
-/* ==================================================
-   TESTIMONIAL GRID & SWAP
-================================================== */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-.testimonial-swap-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  position: relative;
-}
-
+/* BOTTOM TESTIMONIAL SWAP */
 .swap-box {
   transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   will-change: transform;
@@ -129,117 +68,20 @@
   transform: translateX(0);
 }
 
-.testimonial-card {
-  background-color: #fef8ee;
-  border-radius: 20px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.stars {
-  color: #e59b20;
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-}
-
-.testimonial-card p {
-  font-size: 12px;
-  color: #475569;
-  line-height: 1.6;
-  margin: 0 0 20px 0;
-}
-
-/* USER INFO */
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.user-info img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.user-info h4 {
-  font-size: 13px;
-  font-weight: 800;
-  color: #0f172a;
-  margin: 0;
-}
-
-.user-info span {
-  font-size: 11px;
-  color: #94a3b8;
-  display: block;
-}
-
-/* PAGINATION */
-.dots-pagination {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #cbd5e1;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #e59b20;
-  width: 24px;
-  border-radius: 10px;
-}
-
-/* IMAGE CONTAINER */
-.testimonials-image-box {
-  width: 100%;
-  height: 480px;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.testimonials-image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* ==================================================
-   BREAKPOINTS / MEDIA QUERIES
+   BREAKPOINTS FOR CAROUSEL/SWAP BEHAVIOR
 ================================================== */
 
-/* Laptop Screens (1024px to 1200px) */
 @media (max-width: 1200px) {
   .place-cards-container {
     height: 310px;
   }
 
   .place-card {
-    padding: 24px 20px;
     min-height: 260px;
-  }
-
-  .testimonials-image-box {
-    height: 420px;
   }
 }
 
-/* Tablets (768px to 992px) */
 @media (max-width: 992px) {
   .place-cards-container {
     height: auto;
@@ -261,81 +103,12 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
     border-color: #f3f4f6;
   }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .testimonial-swap-wrapper {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .testimonials-image-box {
-    height: 380px;
-  }
 }
 
-/* Small Tablets & Mobile Devices (Up to 768px) */
 @media (max-width: 768px) {
-  .place-heading,
-  .testimonials-content {
-    text-align: center;
-  }
-
-  .testimonial-swap-wrapper {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
   /* Disable horizontal translate animation on single column layout */
   .move-right,
   .move-left {
     transform: translateX(0) !important;
-  }
-
-  .testimonial-card {
-    padding: 20px;
-    text-align: left;
-  }
-
-  .dots-pagination {
-    justify-content: center;
-  }
-
-  .testimonials-image-box {
-    height: 300px;
-    border-radius: 20px;
-  }
-}
-
-/* Extra Small Mobile Devices (Up to 480px) */
-@media (max-width: 480px) {
-  .place-cards-container {
-    padding: 0 12px;
-  }
-
-  .place-card {
-    padding: 20px 16px;
-    border-radius: 16px;
-  }
-
-  .icon-circle {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 14px;
-  }
-
-  .testimonial-card p {
-    font-size: 11px;
-  }
-
-  .user-info img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .testimonials-image-box {
-    height: 240px;
   }
 }
