@@ -5,10 +5,12 @@ import AboutMission from "./pages/AboutMission";
 import Programs from "./pages/Programs";
 import SupportStory from "./pages/SupportStory";
 import Footer from "./components/Footer";
+import PageLoader from "./components/PageLoader";
 
 function App() {
   return (
     <>
+      <PageLoader />
       <Navbar />
       <main>
         <Hero />

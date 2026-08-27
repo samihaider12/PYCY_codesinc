@@ -1,158 +1,5 @@
-/* Base Container */
-.capri-section {
-  width: 100%;
-  padding: 80px 24px 100px 24px;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-}
+/* Only the custom keyframe lives here — everything else is Tailwind in the JSX */
 
-.capri-container {
-  max-width: 1140px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Header Section */
-.capri-header {
-  text-align: center;
-  max-width: 650px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.capri-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background-color: #fef3e2;
-  color: #e59b20;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  padding: 6px 16px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.capri-tag .dot {
-  font-size: 14px;
-}
-
-.capri-title {
-  font-size: 44px;
-  font-weight: 800;
-  color: #262626;
-  line-height: 1.15;
-  margin-bottom: 18px;
-}
-
-.capri-script {
-  font-family: 'Brush Script MT', cursive, Georgia, serif;
-  color: #e59b20;
-  font-weight: 400;
-  font-size: 48px;
-}
-
-.capri-description {
-  font-size: 14px;
-  color: #64748b;
-  line-height: 1.6;
-}
-
-/* Cards Grid Layout (4 Columns in 1 Row) */
-.capri-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  width: 100%;
-}
-
-.capri-card {
-  height: 340px;
-  border-radius: 24px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.capri-card:hover {
-  transform: translateY(-8px);
-}
-
-/* 1. First Card (Full Image Card) */
-.image-card {
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.card-bg-img {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s ease;
-}
-
-.image-card:hover .card-bg-img {
-  transform: scale(1.06);
-}
-
-.yellow-overlay-badge {
-  position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;
-  background-color: #e59b20;
-  color: #ffffff;
-  padding: 14px;
-  border-radius: 14px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.3;
-  box-shadow: 0 6px 15px rgba(229, 155, 32, 0.3);
-}
-
-/* 2. Light Gradient Cards */
-.info-card {
-  background: linear-gradient(180deg, #ffffff 50%, #fff7ea 100%);
-  border: 1px solid #f3f4f6;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-}
-
-.info-card:hover {
-  box-shadow: 0 14px 35px rgba(229, 155, 32, 0.12);
-  border-color: #fce8cd;
-}
-
-/* Animated Heart Icon Box (Updated) */
-.capri-section .icon-circle {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background-color: #fef3e2; /* Light Yellow Background */
-  color: #e59b20;            /* Yellow Heart Icon Color */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 15px rgba(229, 155, 32, 0.25);
-  
-  animation: bounceLeftRight 1.6s ease-in-out infinite alternate;
-}
-
-/* Pause animation on card hover */
-.info-card:hover .icon-circle {
-  animation-play-state: paused;
-}
-
-/* Keep the heart icon moving horizontally inside each card. */
 @keyframes bounceLeftRight {
   from {
     transform: translateX(0);
@@ -161,40 +8,43 @@
     transform: translateX(120px);
   }
 }
-.info-content {
-  margin-top: auto;
+
+/* Pause animation on card hover */
+.info-card:hover .icon-circle {
+  animation-play-state: paused;
 }
 
-.card-title {
-  font-size: 18px;
-  font-weight: 800;
-  color: #1e293b;
-  margin-bottom: 8px;
+.card-hover-image,
+.card-hover-overlay,
+.card-hover-content {
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.card-desc {
-  font-size: 13px;
-  color: #64748b;
-  line-height: 1.5;
+.card-hover-image {
+  opacity: 0;
+  transform: scale(1.06);
 }
 
-/* Responsive Grid */
-@media (max-width: 992px) {
-  .capri-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.card-hover-overlay {
+  background: linear-gradient(180deg, rgba(8, 22, 39, 0.18), rgba(8, 22, 39, 0.92));
+  opacity: 0;
 }
 
-@media (max-width: 576px) {
-  .capri-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .capri-title {
-    font-size: 32px;
-  }
+.card-hover-content {
+  opacity: 0;
+  transform: translateY(100%);
+}
 
-  .capri-script {
-    font-size: 36px;
-  }
+.info-card:hover .card-hover-image,
+.info-card:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+.info-card:hover .card-hover-image {
+  transform: scale(1);
+}
+
+.info-card:hover .card-hover-content {
+  opacity: 1;
+  transform: translateY(0);
 }
